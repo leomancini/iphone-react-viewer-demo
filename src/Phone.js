@@ -124,7 +124,22 @@ function Phone({
     return () => window.removeEventListener("resize", resizePhone);
   }, []);
 
-  const CurrentTime = () => {
+  const Clock = ({ live }) => {
+    const Time = styled.div`
+      color: white;
+      font-size: 17px;
+      position: absolute;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      font-weight: 500;
+      top: 59px;
+      left: 66px;
+      letter-spacing: 0.5px;
+      width: 88px;
+      text-align: center;
+      color: inherit;
+    `;
+
     const [currentTime, setCurrentTime] = useState(new Date());
 
     useEffect(() => {
@@ -144,23 +159,11 @@ function Phone({
       return `${formattedHours}:${formattedMinutes}`;
     };
 
-    const Time = styled.div`
-      color: white;
-      font-size: 17px;
-      position: absolute;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
-      font-weight: 500;
-      top: 59px;
-      left: 66px;
-      letter-spacing: 0.5px;
-      width: 88px;
-      text-align: center;
-      color: inherit;
-    `;
-
-    return <Time>{formatTime(currentTime)}</Time>;
-    // return <Time>9:41</Time>;
+    if (live) {
+      return <Time>{formatTime(currentTime)}</Time>;
+    } else {
+      return <Time>9:41</Time>;
+    }
   };
 
   return (
@@ -169,7 +172,7 @@ function Phone({
         <Screen backgroundColor={backgroundColor}>
           <StatusBar background={StatusBarImage} mode={statusBarMode}>
             <DynamicIsland background={DynamicIslandImage} />
-            <CurrentTime />
+            <Clock live={true} />
           </StatusBar>
           <HomeIndicator mode={homeIndicatorMode} />
           {children}

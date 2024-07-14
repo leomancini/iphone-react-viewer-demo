@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Phone from "./Phone";
 
 const Page = styled.div`
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,9 +25,11 @@ function App() {
             width: "100%",
             height: "100%",
             backgroundColor: "#fff",
+            color: "#000",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            marginBottom: "3rem",
           }}
         >
           Hello world!
