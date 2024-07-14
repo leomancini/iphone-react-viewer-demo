@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-const importDeviceImages = (device, statusBarMode) => {
+const importDeviceImages = (device, statusBarColor) => {
   const baseDevicePath = "./assets/devices";
   const filenames = {
     DeviceImage: "Device.png",
     StatusBarImage:
-      statusBarMode === "light"
-        ? "Status Bar Light.png"
-        : "Status Bar Dark.png",
+      statusBarColor === "black"
+        ? "Status Bar Black.png"
+        : "Status Bar White.png",
     DynamicIslandImage: "Dynamic Island.png",
   };
 
@@ -51,7 +51,7 @@ const Device = styled.div`
 const Screen = styled.div`
   width: 393px;
   height: 852px;
-  background: ${(props) => props.backgroundColor};
+  background: ${(props) => props.contentBackgroundColor};
   border-radius: 56px;
   display: flex;
   flex-direction: column;
@@ -65,7 +65,7 @@ const StatusBar = styled.div`
   background-size: 143px 54px;
   background-repeat: no-repeat;
   background-position: right;
-  color: ${(props) => (props.mode === "light" ? "white" : "black")};
+  color: ${(props) => (props.color === "white" ? "white" : "black")};
 `;
 
 const DynamicIsland = styled.div`
@@ -80,7 +80,7 @@ const DynamicIsland = styled.div`
 `;
 
 const HomeIndicator = styled.div`
-  background-color: ${(props) => (props.mode === "dark" ? "black" : "white")};
+  background-color: ${(props) => (props.color === "white" ? "white" : "black")};
   height: 5px;
   position: absolute;
   bottom: 48px;
@@ -92,15 +92,16 @@ const HomeIndicator = styled.div`
 
 function Phone({
   deviceType,
-  statusBarMode,
-  homeIndicatorMode,
-  backgroundColor,
+  liveClock,
+  statusBarColor,
+  homeIndicatorColor,
+  contentBackgroundColor,
   children,
 }) {
   const phoneRef = useRef(null);
 
   const { DeviceImage, StatusBarImage, DynamicIslandImage } =
-    importDeviceImages(deviceType, statusBarMode);
+    importDeviceImages(deviceType, statusBarColor);
 
   useEffect(() => {
     const resizePhone = () => {
@@ -169,12 +170,12 @@ function Phone({
   return (
     <DeviceWrapper>
       <Device ref={phoneRef} background={DeviceImage}>
-        <Screen backgroundColor={backgroundColor}>
-          <StatusBar background={StatusBarImage} mode={statusBarMode}>
+        <Screen contentBackgroundColor={contentBackgroundColor}>
+          <StatusBar background={StatusBarImage} color={statusBarColor}>
             <DynamicIsland background={DynamicIslandImage} />
-            <Clock live={true} />
+            <Clock live={liveClock} />
           </StatusBar>
-          <HomeIndicator mode={homeIndicatorMode} />
+          <HomeIndicator color={homeIndicatorColor} />
           {children}
         </Screen>
       </Device>

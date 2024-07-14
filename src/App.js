@@ -16,9 +16,10 @@ function App() {
     <Page>
       <Phone
         deviceType="iPhone 11 Pro"
-        statusBarMode="dark"
-        homeIndicatorMode="dark"
-        backgroundColor="#fff"
+        liveClock={false}
+        statusBarColor="black"
+        homeIndicatorColor="black"
+        contentBackgroundColor="#fff"
       >
         <div
           style={{
