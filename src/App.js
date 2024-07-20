@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Phone from "./Phone";
+import Phone from "iphone-react-viewer";
 
 const Page = styled.div`
   background-color: rgba(0, 0, 0, 0.15);
