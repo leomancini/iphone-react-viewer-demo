@@ -7,6 +7,16 @@ const Page = styled.div`
   overflow: hidden;
 `;
 
+const DemoScreen = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+`;
+
 function App() {
   return (
     <Page>
@@ -17,20 +27,7 @@ function App() {
         homeIndicatorColor="black"
         contentBackgroundColor="#fff"
       >
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#fff",
-            color: "#000",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: "3rem",
-          }}
-        >
-          Hello world!
-        </div>
+        <DemoScreen>Hello world!</DemoScreen>
       </Phone>
     </Page>
   );
