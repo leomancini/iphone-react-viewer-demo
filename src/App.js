@@ -4,10 +4,6 @@ import Phone from "iphone-react-viewer";
 
 const Page = styled.div`
   background-color: rgba(0, 0, 0, 0.15);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   overflow: hidden;
 `;
 
