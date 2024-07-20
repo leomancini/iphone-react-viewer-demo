@@ -15,7 +15,7 @@ function App() {
   return (
     <Page>
       <Phone
-        deviceType="iPhone 11 Pro"
+        deviceType="iPhone 15 Pro"
         liveClock={true}
         statusBarColor="black"
         homeIndicatorColor="black"

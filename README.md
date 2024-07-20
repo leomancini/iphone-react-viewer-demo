@@ -8,7 +8,7 @@ Share your React prototype within an iPhone device frame for more a realistic pr
 
 ```
 <Phone
-  deviceType="iPhone 11 Pro"
+  deviceType="iPhone 15 Pro"
   liveClock={false}
   statusBarColor="black"
   homeIndicatorColor="black"
@@ -24,7 +24,7 @@ Share your React prototype within an iPhone device frame for more a realistic pr
 
 ```
 <Phone
-  deviceType="iPhone 11 Pro"
+  deviceType="iPhone 15 Pro"
   liveClock={false}
   statusBarColor="white"
   homeIndicatorColor="white"
